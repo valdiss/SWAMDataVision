@@ -2,8 +2,9 @@ function getListSources(html) {
 var array = [];
 var links = document.getElementsByTagName("a");
 for(var i=0; i<links.length; i++) {
-array.push(links[i].href);
+console.log(links[i].href);
 }
+console.log(array);
 return array;
 };
 
@@ -30,7 +31,6 @@ $( document ).ready(function() {
            author.innerHTML = response["objects"][0]["author"];
            console.log(response["objects"][0]);
            var listSRC = getListSources(response["objects"][0]["html"]);
-           console.log(listSRC);
            $('#gif').removeClass('showgif');
            $('.hiddenn').addClass('shown');
        }, function onError(response) {
