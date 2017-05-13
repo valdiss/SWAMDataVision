@@ -1,8 +1,9 @@
 $( document ).ready(function() {
   $('.form1').submit(function(event){
     event.preventDefault();
+    let valeur= $('input').val();
     client.article.get({
-           url: "https://www.les-crises.fr/les-relations-e-u-arabie-saoudite-sont-elles-en-train-de-tourner-au-vinaigre-par-gregory-copley/",
+           url: valeur,
            fields: "links,meta"
        }, function onSuccess(response) {
            // output the title
