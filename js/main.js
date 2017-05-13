@@ -1,9 +1,18 @@
+function getListSources(html) {
+var array = [];
+var links = document.getElementsByTagName("a");
+for(var i=0; i<links.length; i++) {
+array.push(links[i].href);
+}
+return array;
+};
+
 $( document ).ready(function() {
   $('.form1').submit(function(event){
     event.preventDefault();
      $('#gif').addClass('showgif');
     client.article.get({
-           url: "http://www.lemonde.fr/education/article/2017/05/12/les-adieux-tres-politiques-de-la-ministre-de-l-education-najat-vallaud-belkacem_5127051_1473685.html",
+           url: "http://www.lefigaro.fr/medias/2017/03/10/20004-20170310ARTFIG00167-contre-les-fake-news-des-activistes-ciblent-leurs-revenus-publicitaires.php",
 
            fields: "links,meta"
        }, function onSuccess(response) {
@@ -17,6 +26,8 @@ $( document ).ready(function() {
            var author=document.getElementById('auteur');
            author.innerHTML = response["objects"][0]["author"];
            console.log(response["objects"][0]);
+           var listSRC = getListSources(response["objects"][0]["html"]);
+           console.log(listSRC);
            $('#gif').removeClass('showgif');
            $('.hiddenn').addClass('shown');
        }, function onError(response) {
@@ -44,6 +55,8 @@ $( document ).ready(function() {
     $('input').val('');
   });
 });
+
+
 
 
 var client = new Diffbot("b2c70ccc0c0bdca0cd4c92b37fd590cf");
