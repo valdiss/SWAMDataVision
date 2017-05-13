@@ -1,0 +1,140 @@
+// Float
+
+.is-pulled-left
+  float: left
+
+.is-pulled-right
+  float: right
+
+// Overflow
+
+.is-clipped
+  overflow: hidden !important
+
+// Text
+
+.has-text-centered
+  text-align: center
+
+.has-text-left
+  text-align: left
+
+.has-text-right
+  text-align: right
+
+// Colors
+
+@each $name, $pair in $colors
+  $color: nth($pair, 1)
+  $color-invert: nth($pair, 2)
+  .is-#{$name}
+    color: $color
+  .has-background-#{$name}
+    background: $color
+    transition: background-color .25s,color .15s,box-shadow .15s,opacity .25s,filter .25s,border .15s //ultra temporaire animation pour gérer le prob des cards et buttons sur home biblio
+    &:hover.is-hovered
+      background: darken($color, 5%)
+      box-shadow: $shadow-container-default
+      cursor: pointer
+
+// Opacity
+
+.has-opacity-0-1
+  opacity: 0.1
+
+.has-opacity-0-2
+  opacity: 0.2
+
+.has-opacity-0-3
+  opacity: 0.3
+
+.has-opacity-0-4
+  opacity: 0.4
+
+.has-opacity-0-5
+  opacity: 0.5
+
+.has-opacity-0-6
+  opacity: 0.6
+
+.has-opacity-0-7
+  opacity: 0.7
+
+.has-opacity-0-8
+  opacity: 0.8
+
+.has-opacity-0-9
+  opacity: 0.9
+
+// Size
+
+.is-small
+  font-size: $font-size-small
+  width: $font-size-small
+  height: $font-size-small
+
+.is-medium
+  font-size: $font-size-medium
+  width: $font-size-medium
+  height: $font-size-medium
+
+.is-large
+  font-size: $font-size-large
+  width: $font-size-large
+  height: $font-size-large
+
+.is-extralarge
+  font-size: $font-size-extralarge
+  width: $font-size-extralarge
+  height: $font-size-extralarge
+
+.is-giant
+  font-size: 6rem
+  width: 6rem
+  height: 6rem
+
+//Radius
+
+$rayons: (radius-small: ($radius-small), radius-normal: ($radius-normal), radius-default: ($radius-default), radius-large: ($radius-large), radius-circled: ($radius-circle), radius-rounded: ($radius-rounded), radius-100: ($radius-100))
+@each $name, $rayon in $rayons
+  .has-#{$name}
+    border-radius: $rayon
+
+// Visibility
+
+.is-hidden
+  display: none !important
+
+.is-marginless
+  margin: 0 !important
+
+.is-margin-base
+  margin: $margin-base
+
+.is-margin-default, .is-margin-normal
+  margin: $margin-default
+
+.is-margin-small
+  margin: $margin-small
+
+// Padding
+
+.is-paddingless
+  padding: 0 !important
+
+.is-padding-base
+  padding: $padding-base
+
+.is-padding-default, .is-padding-normal
+  padding: $padding-default
+
+.is-padding-double
+  padding: $padding-double
+
+.is-padding-small
+  padding: $padding-small
+
+// Other
+
+.is-disabled
+  pointer-events: none
