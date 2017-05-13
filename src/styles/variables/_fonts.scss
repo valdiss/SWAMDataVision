@@ -1,0 +1,132 @@
+/* 2.1 Fonts */
+// Fonts' Initialization
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,900'); //TODO vérifier où importer font
+
+//Text Default //TODO Problème avec le Rem de base (uniquement visible sur menu) car affiche un font-size de 1rem équivalent environ à 24px sur navbar
+
+$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-default: $font-family-sans-serif !default;
+
+//Titles
+$font-family-sans-serif-titles: Roboto;
+$font-titles: $font-family-sans-serif-titles;
+
+//Weight
+$font-weight-normal: normal !default;
+$font-weight-bold: 900 !default;
+$font-weight-medium: 500 !default;
+$font-weight-light: 300 !default;
+
+@for $font-weight-normal from 1 through 9 {
+
+    .font-weight-#{$font-weight-normal * 100} {
+        font-weight: #{$font-weight-normal * 100};
+    }
+}
+
+//Size
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-normal: $font-size-base !default;
+
+$font-size-facets: 0.95rem !default;
+$font-size-small: 0.85rem !default;
+
+$font-size-h1: 2.25rem !default;
+$font-size-h2: 2rem !default;
+$font-size-h3: 1.75rem !default;
+$font-size-h4: 1.5rem !default;
+$font-size-h5: 1.25rem !default;
+$font-size-h6: 1rem !default;
+
+$font-size-medium: $font-size-h5 !default;
+$font-size-large: $font-size-h3 !default;
+$font-size-extralarge: $font-size-h1 !default;
+
+@for $font-size-base from 1 through 60 {
+
+    .font-size-#{$font-size-base * 2} {
+        font-size: #{$font-size-base * 2}px;
+    }
+}
+
+$font-sizes: $font-size-base $font-size-small $font-size-h1 $font-size-h2 $font-size-h3 $font-size-h4 $font-size-h5 $font-size-h6 !default
+
+//Line Height
+$line-height-base: 1.5rem !default;
+$line-height-smallbase: 1.35rem !default;
+$line-height-double: 2.5rem;
+$line-height-small: 1rem;
+$line-height-none: 0rem;
+
+@for $line-Height from 1 through 60 {
+
+    .line-height-#{$line-height-base * 2} {
+        line-height: #{$line-height-base * 2}px;
+    }
+}
+
+/* 2.2 Text */
+
+//p
+p{
+	font-family: $font-default;
+	font-weight: $font-weight-normal;
+	font-size: $font-size-base;
+	color: $dark;
+	line-height: $line-height-base;
+	letter-spacing: 0.5px
+}
+strong{
+	font-weight: $font-weight-medium;
+	color: $blue;
+}
+
+/*ul {
+    li {
+        font-family: $font-default;
+        font-weight: $font-weight-normal;
+        font-size: $font-size-base;
+        color: $dark;
+        line-height: $line-height-base;
+        letter-spacing: 0.5px;
+        list-style-type: none;
+        &:before{
+            color: $blue;
+            content: "\2022";
+            font-size: $font-size-h5;
+            margin-right: 8px;
+        }
+    }
+}*/
+
+::selection {
+    background: $white;
+	color: inherit;
+}
+
+::-moz-selection{
+    background: $white;
+    color: inherit;
+}
+
+/* 2.3 Titles */
+
+
+/* 2.4 Links */
+
+//a
+
+a{
+	text-decoration: none;
+	color: $blue;
+
+	//a:hover
+	&:hover{
+		color: $blue;
+	}
+	//a:active
+	&:active,&:visited{
+		color: $lightgrey;
+	}
+}
