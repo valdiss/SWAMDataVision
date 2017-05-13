@@ -1,0 +1,57 @@
+body {
+  background-color: #131313;
+}
+
+h1 {
+  margin-top: 5%;
+  text-align: center;
+  color: white;
+  font-family: 'ThatPaper', sans-serif;
+  font-size: 5em;
+}
+
+.flexParent {
+  display: flex;
+  align-items: center;
+  justify-content:  flex-end;
+  flex-direction: column;
+  height: 30vh;
+}
+
+.form1 {
+  width: 100%;
+}
+
+.form1 .form-group{
+  text-align: center;
+}
+
+.form1 input {
+  padding:15px;
+  width: 50%;
+  font-size: 1.5em;
+}
+
+button.submit {
+  padding: 10px;
+  background-color: white;
+  font-size: 3em;
+  margin-top: 10px;
+}
+
+#searchbar {
+  width: 100%;
+  position: relative;
+  right: -25px;
+}
+
+.add-on .input-group-btn > .btn {
+    position: relative;
+    left:-40px;
+    padding: 20px;
+    border: none;
+}
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+    border-color:#cccccc;
+}
