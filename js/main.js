@@ -1,5 +1,8 @@
 $( document ).ready(function() {
-  $('form').submit(function(event){
+  $('.form1').submit(function(event){
     event.preventDefault();
+
+    $('.flexParent').toggleClass('up');
+    $('.hiddenn').toggleClass('shown');
   });
 });

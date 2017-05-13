@@ -10,6 +10,8 @@ h1 {
   font-size: 5em;
 }
 
+
+
 .flexParent {
   display: flex;
   align-items: center;
@@ -43,6 +45,24 @@ button.submit {
   width: 100%;
   position: relative;
   right: -25px;
+}
+
+.up {
+  transform:translateY(-250px);
+  transition:1s;
+}
+.down {
+  transition:1s;
+}
+
+.hiddenn {
+  opacity: 0;
+  transition:1s;
+}
+
+.shown {
+  opacity: 1;
+  transition: 1s;
 }
 
 .add-on .input-group-btn > .btn {
