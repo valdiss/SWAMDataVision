@@ -1,5 +1,5 @@
-window.addEventListener ('DOMContentLoaded', function(){
-  $('form1').addEventListener('submit', function(event){
+$( document ).ready(function() {
+  $('form').submit(function(event){
     event.preventDefault();
   });
 });
