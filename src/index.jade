@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title OnlyFact
+    link(rel='stylesheet', href='./styles/utilities/bootstrap-min.css')
+    link(rel='stylesheet', href='./styles/styles.css')
+  body
+    div.xt-header
+      span OnlyFact
+    div.xt-main.container.col-md-8.col-md-offset-2
+      div.laius
+        span Chez OnlyFact, nous pensons que connaître les sources d'une article est tout aussi important que son contenu. Aussi nous vous proposons un outil pour :
+        br
+        i.fa.fa-binoculars(aria-hidden="true") 
+        span Analyser les sources
+        br
+        i.fa.fa-check(aria-hidden="true") 
+        span Vérifier les données
+        br
+        i.fa.fa-hand-spock-o(aria-hidden="true")
+        span Et le tout en vous laissant seul juge concernant son contenu
+      div.down
+        form.form1
+          div.xt-searchbar.input-group
+            input(type='search', required='', name='name', placeholder='https://www.your-article.com', aria-describedby='btnGroupAddon2')
+            button.btn.btn-default(type='submit')
+              i.fa.fa-search
+    img(src="./commons/images/balls.gif" id="gif")
+    div.hiddenn.result.container
+      div#text.col-md-8
+      div.carac.col-md-4
+      ul
+        li#source.is-sketchy Non disponible
+        li#date.is-neutral bonjour 
+        li#auteur.is-invalidate bonjour
+        li#media.is-success Le Monde
+      div.social
+        button.btn.btn-default(type='button', name='button') *T
+        button.btn.btn-default(type='button', name='button') L
+      br
+      div.stamp
+        img.mark(src='img/stamp-a.png', alt='')
+    div.clearfix
+    div.return
+      button.btn.btn-default.return-content Retour à la recherche
+      a.see-article(href='', target='_blank')
+      button.btn.btn-default Voir l'article
+  script(src='./js/jquery-3.2.1.min.js')
+  script(type='text/javascript', src='js/diffbot.js')
+  script(src='./js/main.js')
