@@ -5,21 +5,25 @@ $( document ).ready(function() {
     $('#gif').addClass('showgif');
     client.article.get({
            url: valeur,
-
            fields: "links,meta"
        }, function onSuccess(response) {
            // output the title
 
            var date = document.getElementById("date");
-           date.innerHTML = response["objects"][0]["date"];
+           date.innerHTML = "Date: "+response["objects"][0]["date"];
            var text = document.getElementById("text");
-           text.innerHTML = response["objects"][0]["title"];
-           text.innerHTML += "<br><img src="+response["objects"][0]["images"][0]["url"]+">";
+           text.innerHTML = "<h2>"+response["objects"][0]["title"]+"</h2>";
+           text.innerHTML += "<br><img class='img-post' src="+response["objects"][0]["images"][0]["url"]+">";
            var author=document.getElementById('auteur');
            author.innerHTML = response["objects"][0]["author"];
            console.log(response["objects"][0]);
            $('#gif').removeClass('showgif');
            $('.hiddenn').addClass('shown');
+
+           let randomMark= Math.floor(Math.random()*2);
+           let marks = ["img/stamp-a.png","img/stamp-f.png"];
+           $('.mark').attr('src',marks[randomMark]);
+           $('.see-article').attr('href',valeur);
        }, function onError(response) {
              switch(response.errorCode) {
                case 401:
