@@ -4,13 +4,20 @@ $( document ).ready(function() {
     event.preventDefault();
     $('#gif').addClass('showgif');
     let valeur = $('input').val();
+
+    function convertDate(inputFormat) {
+      function pad(s) { return (s < 10) ? '0' + s : s; }
+      var d = new Date(inputFormat);
+      return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+    }
+
     client.article.get({
            url: valeur,
            fields: "links,meta"
        }, function onSuccess(response) {
            // output the title
            var date = document.getElementById("date");
-           date.innerHTML = "Date: "+response["objects"][0]["date"];
+           date.innerHTML = "Date: "+ convertDate(response["objects"][0]["date"]);
            var text = document.getElementById("text");
            text.innerHTML = "<h2>"+response["objects"][0]["title"]+"<h2>";
            text.innerHTML += "<img src="+response["objects"][0]["images"][0]['url']+">";
