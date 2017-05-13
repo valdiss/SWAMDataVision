@@ -5,23 +5,23 @@ body {
 h1 {
   margin-top: 5%;
   text-align: center;
-  /*color: white;*/
   font-family: 'ThatPaper', sans-serif;
   font-size: 5em;
 }
-
-
 
 .flexParent {
   display: flex;
   align-items: center;
   justify-content:  flex-end;
   flex-direction: column;
-  height: 30vh;
 }
 
 .form1 {
   width: 100%;
+}
+
+.sous-titre{
+  display:flex;
 }
 
 .form1 .form-group{
@@ -48,14 +48,18 @@ button.submit {
 }
 
 .up {
-  transform:translateY(-250px);
-  transition:1s;
+  opacity:0;
+  transform:translateX(2000px);
+  transition: all 1s;
 }
+
 .down {
-  transition:1s;
+  opacity:1;
+  transition:all 1s;
 }
 #gif{
 display:none;
+margin: 0 auto;
 }
 .showgif{
   display:block!important;

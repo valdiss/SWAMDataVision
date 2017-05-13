@@ -10,9 +10,12 @@ return array;
 $( document ).ready(function() {
   $('.form1').submit(function(event){
     event.preventDefault();
-     $('#gif').addClass('showgif');
+    let valeur= $('input').val();
+    $('#gif').addClass('showgif');
     client.article.get({
+
            url: "http://www.lefigaro.fr/medias/2017/03/10/20004-20170310ARTFIG00167-contre-les-fake-news-des-activistes-ciblent-leurs-revenus-publicitaires.php",
+
 
            fields: "links,meta"
        }, function onSuccess(response) {
