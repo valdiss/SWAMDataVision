@@ -54,7 +54,12 @@ button.submit {
 .down {
   transition:1s;
 }
-
+#gif{
+display:none;
+}
+.showgif{
+  display:block!important;
+}
 .hiddenn {
   opacity: 0;
   transition:1s;
