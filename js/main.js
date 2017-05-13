@@ -2,22 +2,23 @@ $( document ).ready(function() {
   $('.form1').submit(function(event){
     event.preventDefault();
     let valeur= $('input').val();
+    $('#gif').addClass('showgif');
     client.article.get({
            url: valeur,
+
            fields: "links,meta"
        }, function onSuccess(response) {
            // output the title
-           var title = document.getElementById("title");
-           title.innerHTML = response["objects"][0]["title"];
+
            var date = document.getElementById("date");
            date.innerHTML = response["objects"][0]["date"];
-           var estimatedDate = document.getElementById("estimatedDate");
-           estimatedDate.innerHTML = response["objects"][0]["estimatedDate"];
            var text = document.getElementById("text");
-           text.innerHTML = response["objects"][0]["text"];
-           var text = document.getElementById("auteur");
-           text.innerHTML = response["objects"][0]["author"];
+           text.innerHTML = response["objects"][0]["title"];
+           text.innerHTML += "<br><img src="+response["objects"][0]["images"][0]["url"]+">";
+           var author=document.getElementById('auteur');
+           author.innerHTML = response["objects"][0]["author"];
            console.log(response["objects"][0]);
+           $('#gif').removeClass('showgif');
            $('.hiddenn').addClass('shown');
        }, function onError(response) {
              switch(response.errorCode) {

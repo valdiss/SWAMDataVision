@@ -57,7 +57,13 @@ button.submit {
   opacity:1;
   transition:all 1s;
 }
-
+#gif{
+display:none;
+margin: 0 auto;
+}
+.showgif{
+  display:block!important;
+}
 .hiddenn {
   opacity: 0;
   transition:1s;
