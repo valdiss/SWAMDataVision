@@ -2,7 +2,7 @@ $( document ).ready(function() {
   $('.form1').submit(function(event){
     event.preventDefault();
     client.article.get({
-           url: "http://www.les-crises.fr/les-relations-e-u-arabie-saoudite-sont-elles-en-train-de-tourner-au-vinaigre-par-gregory-copley/",
+           url: "https://www.les-crises.fr/les-relations-e-u-arabie-saoudite-sont-elles-en-train-de-tourner-au-vinaigre-par-gregory-copley/",
            fields: "links,meta"
        }, function onSuccess(response) {
            // output the title
