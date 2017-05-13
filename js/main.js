@@ -4,6 +4,7 @@ $( document ).ready(function() {
      $('#gif').addClass('showgif');
     client.article.get({
            url: "http://www.lemonde.fr/education/article/2017/05/12/les-adieux-tres-politiques-de-la-ministre-de-l-education-najat-vallaud-belkacem_5127051_1473685.html",
+
            fields: "links,meta"
        }, function onSuccess(response) {
            // output the title
