@@ -49,17 +49,23 @@ $( document ).ready(function() {
 
 
            $('.hiddenn').addClass('shown');
-           var listSRC = getListSources(response["objects"][0]["html"]);
+           let hostname = getLocation(response["objects"][0]["pageUrl"]);
+
+           if(hostname.indexOf('www.')>-1){
+            hostname = hostname.substring(4);
+            console.log('je suis dedans');
+           }
+           console.log(hostname);
+           var listSRC = getListSources(response["objects"][0]["html"],hostname);
 
            console.log(response["objects"][0]);
-           if(listSRC!=[]){
+           if(listSRC.length>0){
              var source = document.getElementById("source");
              source.innerHTML = "Sources détéctées ("+listSRC.length+")";
-
-             for(let i=0;i<listSRC.length;i++){
-
-
-             }
+             $('#source').addClass('is-success');
+           }
+           else{
+              $('#source').addClass('is-invalidate');
            }
            $('#gif').removeClass('showgif');
            $('.hiddenn').addClass('shown');
@@ -94,18 +100,18 @@ $( document ).ready(function() {
   });
 });
 
-function getListSources(html) {
+function getListSources(html,name) {
   var array = [];
   console.log('ca va pousser');
   var el = document.createElement( 'html' );
   el.innerHTML = (html);
   var links = el.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
-    if(links[i].href.indexOf('lemonde')>-1){
+    if(links[i].href.indexOf(name)>-1){
       console.log("ce lien vien de le monde "+links[i].href)
     }
     else{
-    array.push(links[i].href);  
+    array.push(links[i].href);
     }
 
 
@@ -113,5 +119,15 @@ function getListSources(html) {
   console.log(array);
   return array;
 };
+
+var getLocation = function(href) {
+    var l = document.createElement("a");
+    l.href = href;
+    //return l;
+    return l.hostname;
+};
+var l = getLocation("http://example.com/path");
+console.debug(l.hostname)
+console.debug(l.pathname)
 
 var client = new Diffbot("b2c70ccc0c0bdca0cd4c92b37fd590cf");
