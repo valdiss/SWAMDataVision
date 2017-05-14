@@ -60,12 +60,12 @@ input {
   background-color: transparent;
 }
 ::-moz-selection {
-  background: #56D9CD;
+  background: #24ba5a;
   color: white;
 }
 
 ::selection {
-  background: #56D9CD;
+  background: #24ba5a;
   color: white;
 }
 
