@@ -76,12 +76,12 @@ $( document ).ready(function() {
 
 
        });
-    $('.flexParent').addClass('up');
+    $('.flexParent').addClass('up right');
 
   });
 
   $('.return-content').click(function(){
-    $('.flexParent').removeClass('up');
+    $('.flexParent').removeClass('up right');
     $('.hiddenn').removeClass('shown');
     $('input').val('');
   });
