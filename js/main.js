@@ -35,7 +35,7 @@ $(document).ready(function() {
         $("#date").addClass('is-success');
       }
       //Ajout de la date de l'article dans l'index.html
-      date.innerHTML = "Date: " + convertDate(response["objects"][0]["date"]);
+      date.innerHTML = convertDate(response["objects"][0]["date"]);
 
       //Ajout du titre et de l'image de l'article dans l'index.html
       var text = document.getElementById("text");
@@ -57,7 +57,7 @@ $(document).ready(function() {
       console.log(response["objects"][0]);
       if (listSRC != []) {
         var source = document.getElementById("source");
-        source.innerHTML = "Sources détéctées (" + listSRC.length + ")";
+        source.innerHTML = listSRC.length;
 
         for (let i = 0; i < listSRC.length; i++) {}
       }
