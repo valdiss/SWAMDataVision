@@ -2,6 +2,7 @@
 $( document ).ready(function() {
   $('.form1').submit(function(event){
     event.preventDefault();
+    $('#gif').addClass('showgif');
     client.article.get({
            url: "http://www.lefigaro.fr/medias/2017/03/10/20004-20170310ARTFIG00167-contre-les-fake-news-des-activistes-ciblent-leurs-revenus-publicitaires.php",
            fields: "links,meta"
@@ -11,8 +12,10 @@ $( document ).ready(function() {
            date.innerHTML = response["objects"][0]["date"];
            var text = document.getElementById("text");
            text.innerHTML = response["objects"][0]["title"];
+           text.innerHTML += "<img src="+response["objects"][0]["images"][0]['url']+">";
            var auteur = document.getElementById("auteur");
            auteur.innerHTML = response["objects"][0]["author"];
+
            $('.hiddenn').addClass('shown');
            var listSRC = getListSources(response["objects"][0]["html"]);
 
