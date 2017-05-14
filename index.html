@@ -11,6 +11,7 @@
 
 <body>
   <div class="header">
+    <img class="logo" src="img/logo.png" alt="" />
     <h1>Only Fact</h1>
   </div>
   <div class="container down flexParent">
@@ -18,7 +19,7 @@
     <div class="flexParent">
       <form class="form1">
         <div>
-          <span class="search-icon"><input id='searchbar' type="search" required name="name" placeholder="https://www.your-article.com"></span>
+          <input id='searchbar' type="search" required name="name" placeholder="https://www.your-article.com"><button type="submit" class="search-icon"><i class="fa fa-search"></i></button>
         </div>
       </form>
     </div>
@@ -31,10 +32,10 @@
     </div>
     <div class="carac col-md-4">
         <ul>
-          <li id='source' class="is-sketchy">Non disponible</li>
-          <li id='date' class="is-neutral">bonjour </li>
-          <li id='auteur' class="is-invalidate">bonjour</li>
-          <li id='media' class="is-success">Le Monde</li>
+          <li id='source' class="is-sketchy">Sources: <i class="fa fa-times" aria-hidden="true"></i> Non disponible</li>
+          <li id='date' class="is-neutral"> Date: <i class="fa fa-times" aria-hidden="true"></i> Non disponible</li>
+          <li id='auteur' class="is-invalidate">Auteur: <i class="fa fa-times" aria-hidden="true"></i> Non disponible</li>
+          <li id='media' class="is-success"><i class="fa fa-times" aria-hidden="true"></i> Non disponible</li>
         </ul>
         <div class="social">
           <button class="btn btn-default" type="button" name="button">*T</button>

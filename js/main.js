@@ -17,13 +17,17 @@ $( document ).ready(function() {
        }, function onSuccess(response) {
            // output the title
            var date = document.getElementById("date");
-           date.innerHTML = "Date: "+ convertDate(response["objects"][0]["date"]);
+           if (response["objects"][0]["date"]) {
+             date.innerHTML = "Date: "+ convertDate(response["objects"][0]["date"]);
+           }
            var text = document.getElementById("text");
            text.innerHTML = "<h2>"+response["objects"][0]["title"]+"<h2>";
            text.innerHTML += "<img src="+response["objects"][0]["images"][0]['url']+">";
 
            var auteur = document.getElementById("auteur");
-           auteur.innerHTML = response["objects"][0]["author"];
+           if (response["objects"][0]["author"]) {
+             auteur.innerHTML = response["objects"][0]["author"];
+           }
            $('.hiddenn').addClass('shown');
            var listSRC = getListSources(response["objects"][0]["html"]);
 
