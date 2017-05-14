@@ -39,6 +39,12 @@ button.submit {
   margin-top: 10px;
 }
 
+input {
+  outline: none;
+  outline-color: transparent;
+  -webkit-appearence:none;
+}
+
 #searchbar {
   width: 50vw;
   left: 25px;
