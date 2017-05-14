@@ -46,14 +46,23 @@ $(document).ready(function() {
            var auteur = document.getElementById("auteur");
            if(response["objects"][0]["author"]!=undefined){
              auteur.innerHTML = response["objects"][0]["author"];
+             $('#auteur').addClass('is-success');
          }
+          else{
+             $('#auteur').addClass('is-invalidate');
+          }
 
 
 
           //ajout du nom du media
            var media = document.getElementById('media');
+           if(response["objects"][0]["siteName"]!= undefined){
            media.innerHTML = response["objects"][0]["siteName"];
-
+           $("#media").addClass('is-success');
+           }
+           else {
+             $("#media").addClass('is-invalidate');
+           }
 
            $('.hiddenn').addClass('shown');
            let hostname = getLocation(response["objects"][0]["pageUrl"]);
@@ -136,7 +145,7 @@ var getLocation = function(href) {
     return l.hostname;
 };
 var l = getLocation("http://example.com/path");
-console.debug(l.hostname)
-console.debug(l.pathname)
+console.debug(l.hostname);
+console.debug(l.pathname);
 
 var client = new Diffbot("b2c70ccc0c0bdca0cd4c92b37fd590cf");
