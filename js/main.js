@@ -1,14 +1,21 @@
-
-$( document ).ready(function() {
-  $('.form1').submit(function(event){
+$(document).ready(function() {
+  $('.form1').submit(function(event) {
     event.preventDefault();
     $('#gif').addClass('showgif');
     let valeur = $('input').val();
 
     function convertDate(inputFormat) {
-      function pad(s) { return (s < 10) ? '0' + s : s; }
+      function pad(s) {
+        return (s < 10)
+          ? '0' + s
+          : s;
+      }
       var d = new Date(inputFormat);
-      return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+      return [
+        pad(d.getDate()),
+        pad(d.getMonth() + 1),
+        d.getFullYear()
+      ].join('/');
     }
 
     client.article.get({
@@ -89,11 +96,12 @@ $( document ).ready(function() {
 
 
        });
+
     $('.flexParent').addClass('up right');
 
   });
 
-  $('.return-content').click(function(){
+  $('.return-content').click(function() {
     $('.flexParent').removeClass('up right');
     $('.hiddenn').removeClass('shown');
     $('input').val('');
@@ -103,7 +111,7 @@ $( document ).ready(function() {
 function getListSources(html,name) {
   var array = [];
   console.log('ca va pousser');
-  var el = document.createElement( 'html' );
+  var el = document.createElement('html');
   el.innerHTML = (html);
   var links = el.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
@@ -111,6 +119,7 @@ function getListSources(html,name) {
       console.log("ce lien vien de le monde "+links[i].href)
     }
     else{
+
     array.push(links[i].href);
     }
 
