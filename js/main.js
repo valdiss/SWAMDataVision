@@ -101,10 +101,13 @@ function getListSources(html) {
   el.innerHTML = (html);
   var links = el.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
-    if(){
-
+    if(links[i].href.indexOf('lemonde')>-1){
+      console.log("ce lien vien de le monde "+links[i].href)
     }
-    array.push(links[i].href);
+    else{
+    array.push(links[i].href);  
+    }
+
 
   }
   console.log(array);
