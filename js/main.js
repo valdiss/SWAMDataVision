@@ -44,12 +44,20 @@ $(document).ready(function() {
       //ajout de l'auteur dans l'index.html
       var auteur = document.getElementById("auteur");
       if (response["objects"][0]["author"] != undefined) {
-        auteur.innerHTML = response["objects"][0]["author"];
+        auteur.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>'+response["objects"][0]["author"];
+        $('#auteur').addClass('is-success');
+      } else {
+        $('#auteur').addClass('is-invalidate');
       }
 
       //ajout du nom du media
       var media = document.getElementById('media');
-      media.innerHTML = response["objects"][0]["siteName"];
+      if (response["objects"][0]["siteName"] != undefined) {
+        media.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>'+response["objects"][0]["siteName"];
+        $("#media").addClass('is-success');
+      } else {
+        $("#media").addClass('is-invalidate');
+      }
 
       $('.hiddenn').addClass('shown');
       let hostname = getLocation(response["objects"][0]["pageUrl"]);
@@ -64,7 +72,7 @@ $(document).ready(function() {
       console.log(response["objects"][0]);
       if (listSRC.length > 0) {
         var source = document.getElementById("source");
-        source.innerHTML =  listSRC.length;
+        source.innerHTML =  '<i class="fa fa-check" aria-hidden="true"></i>'+listSRC.length;
         $('#source').addClass('is-success');
       } else {
         $('#source').addClass('is-invalidate');
