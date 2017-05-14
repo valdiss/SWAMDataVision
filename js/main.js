@@ -30,11 +30,12 @@ $(document).ready(function() {
       if ((datenow - Date.parse(datebefore)) / 1000 > 20000000) {
         $("#date").addClass('is-sketchy');
         console.log('vieux');
+        date.innerHTML = '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>'+convertDate(response["objects"][0]["date"]);
       } else {
         $("#date").addClass('is-success');
+        date.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>'+convertDate(response["objects"][0]["date"]);
       }
       //Ajout de la date de l'article dans l'index.html
-      date.innerHTML = convertDate(response["objects"][0]["date"]);
 
       //Ajout du titre et de l'image de l'article dans l'index.html
       var text = document.getElementById("text");
