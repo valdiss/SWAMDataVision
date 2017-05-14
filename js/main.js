@@ -16,27 +16,34 @@ $( document ).ready(function() {
            url: valeur,
            fields: "links,meta"
        }, function onSuccess(response) {
-           // output the title
            var date = document.getElementById("date");
-           date.innerHTML = "Date: "+ convertDate(response["objects"][0]["date"]);
-           datebefore= new Date(response["objects"][0]["date"]);
            let datenow=Date.now();
-           console.log(datenow+ " Ceci est la date de aintenant" );
-           console.log(Date.parse(datebefore)+"ceci est ma date d'article");
-
-           console.log((datenow-Date.parse(datebefore))/1000);
+           let datebefore= new Date(response["objects"][0]["date"]);
+           //Verification de l'ancienneté de l'article avec ajout d'un warning
            if((datenow-Date.parse(datebefore))/1000 >20000000){
             $("#date").addClass('is-sketchy');
-
             console.log('vieux');
            }
-           //if(response["objects"][0]["date"])
+           else{
+               $("#date").addClass('is-success');
+           }
+           //Ajout de la date de l'article dans l'index.html
+           date.innerHTML = "Date: "+ convertDate(response["objects"][0]["date"]);
+
+           //Ajout du titre et de l'image de l'article dans l'index.html
            var text = document.getElementById("text");
            text.innerHTML = "<h2>"+response["objects"][0]["title"]+"<h2>";
            text.innerHTML += "<img src="+response["objects"][0]["images"][0]['url']+">";
-           var auteur = document.getElementById("auteur");
-           auteur.innerHTML = response["objects"][0]["author"];
 
+           //ajout de l'auteur dans l'index.html
+           var auteur = document.getElementById("auteur");
+           if(response["objects"][0]["author"]!=undefined){
+             auteur.innerHTML = response["objects"][0]["author"];
+         }
+
+
+
+          //ajout du nom du media
            var media = document.getElementById('media');
            media.innerHTML = response["objects"][0]["siteName"];
 
@@ -95,8 +102,9 @@ function getListSources(html) {
   var links = el.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
     array.push(links[i].href);
-    console.log('ca pousse');
+
   }
+  console.log(array);
   return array;
 };
 
