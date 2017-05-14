@@ -101,6 +101,9 @@ function getListSources(html) {
   el.innerHTML = (html);
   var links = el.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
+    if(){
+
+    }
     array.push(links[i].href);
 
   }
