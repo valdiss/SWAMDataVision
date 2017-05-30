@@ -136,4 +136,4 @@ var getLocation = function(href) {
   return l.hostname;
 };
 
-var client = new Diffbot("b2c70ccc0c0bdca0cd4c92b37fd590cf");
+var client = new Diffbot("4898239c4da3fa0b18ab1e8b718d804b");
